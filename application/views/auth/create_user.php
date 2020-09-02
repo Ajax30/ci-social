@@ -17,7 +17,7 @@
 
         <p class="d-none"><?php echo lang('create_user_subheading');?></p>
 
-        <?php echo form_open("auth/create_user");?>
+        <?php echo form_open_multipart("auth/create_user");?>
 
         <div class="form-group">
           <?php $first_name['class'] = 'form-control';

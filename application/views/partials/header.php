@@ -13,7 +13,7 @@
 
 	<div id="siteWrapper" class="d-flex flex-column">
 		
-		<nav class="navbar navbar-expand-md bg-white shadow-sm">
+		<nav class="navbar navbar-expand-sm bg-white shadow-sm">
 		  <a class="navbar-brand" href="/">Navbar</a>
 		  <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#collapsibleNavbar">
 		    <span class="navbar-toggler-icon"></span>
