@@ -506,7 +506,7 @@ class Auth extends CI_Controller
 
 			$config['upload_path'] = './assets/img/avatars';
 			$config['file_ext_tolower']     = TRUE;
-			$config['allowed_types']        = 'gif|jpg|png';
+			$config['allowed_types']        = 'gif|jpg|jpeg|png';
 			$config['max_size']             = 1024;
 			$config['max_width']            = 1024;
 			$config['max_height']           = 1024;
@@ -517,7 +517,7 @@ class Auth extends CI_Controller
 				$error = array('error' => $this->upload->display_errors());
 				$file_name = null;
 			} else {
-				$file_name = $_FILES['userfile']['name'];
+				$file_name = $this->upload->data('file_name');
 			}
 
 			$additional_data = [
@@ -657,7 +657,7 @@ class Auth extends CI_Controller
 				$data = [
 					'first_name' => $this->input->post('first_name'),
 					'last_name' => $this->input->post('last_name'),
-					'avatar' => $_FILES['userfile']['name'],
+					'avatar' => $this->upload->data('file_name'),
 					'company' => $this->input->post('company'),
 					'phone' => $this->input->post('phone'),
 				];
