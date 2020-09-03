@@ -9,6 +9,9 @@ class Auth extends CI_Controller
 {
 	public $data = [];
 
+	//upload file
+	public $file_name = null;
+
 	public function __construct()
 	{
 		parent::__construct();
@@ -461,11 +464,30 @@ class Auth extends CI_Controller
 		}
 	}
 
+	public function upload_avatar(){
+		$config['upload_path'] = './assets/img/avatars';
+		$config['file_ext_tolower']     = TRUE;
+		$config['allowed_types']        = 'gif|jpg|jpeg|png';
+		$config['max_size']             = 1024;
+		$config['max_width']            = 1024;
+		$config['max_height']           = 1024;
+		$config['encrypt_name']        	= TRUE;
+		$this->upload->initialize($config); 
+
+		if (!$this->upload->do_upload('userfile')){
+			$error = array('error' => $this->upload->display_errors());
+		} else {
+			$this->file_name = $this->upload->data('file_name');
+		}
+
+	}
+
 	/**
 	 * Create a new user
 	 */
 	public function create_user()
 	{
+		$this->load->library('upload'); 
 		$this->data['title'] = $this->lang->line('create_user_heading');
 
 		// Oiginal condition commented out so that people can register themselfs
@@ -504,26 +526,12 @@ class Auth extends CI_Controller
 			$identity = ($identity_column === 'email') ? $email : $this->input->post('identity');
 			$password = $this->input->post('password');
 
-			$config['upload_path'] = './assets/img/avatars';
-			$config['file_ext_tolower']     = TRUE;
-			$config['allowed_types']        = 'gif|jpg|jpeg|png';
-			$config['max_size']             = 1024;
-			$config['max_width']            = 1024;
-			$config['max_height']           = 1024;
-			$config['encrypt_name']        	= TRUE;
-			$this->load->library('upload', $config);
-
-			if (!$this->upload->do_upload('userfile')){
-				$error = array('error' => $this->upload->display_errors());
-				$file_name = null;
-			} else {
-				$file_name = $this->upload->data('file_name');
-			}
+			$this->upload_avatar();
 
 			$additional_data = [
 				'first_name' => $this->input->post('first_name'),
 				'last_name' => $this->input->post('last_name'),
-				'avatar' =>  $file_name,
+				'avatar' =>  $this->file_name,
 				'company' => $this->input->post('company'),
 				'phone' => $this->input->post('phone'),
 			];
@@ -616,6 +624,7 @@ class Auth extends CI_Controller
 	 */
 	public function edit_user($id)
 	{
+		$this->load->library('upload'); 
 		$this->data['title'] = $this->lang->line('edit_user_heading');
 
 		if (!$this->ion_auth->logged_in() || (!$this->ion_auth->is_admin() && !($this->ion_auth->user()->row()->id == $id)))
@@ -654,10 +663,13 @@ class Auth extends CI_Controller
 
 			if ($this->form_validation->run() === TRUE)
 			{
+				
+				$this->upload_avatar();
+				
 				$data = [
 					'first_name' => $this->input->post('first_name'),
 					'last_name' => $this->input->post('last_name'),
-					'avatar' => $this->upload->data('file_name'),
+					'avatar' => $this->file_name,
 					'company' => $this->input->post('company'),
 					'phone' => $this->input->post('phone'),
 				];
