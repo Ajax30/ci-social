@@ -5,10 +5,11 @@
 <p><?php echo lang('index_subheading');?></p>
 
 <div class="table-responsive">
-	<table class="table table-bordered table-striped">
+	<table class="table table-sm table-bordered table-striped">
 		<tr>
 			<th><?php echo lang('index_fname_th');?></th>
 			<th><?php echo lang('index_lname_th');?></th>
+			<th><?php echo lang('index_photo_th');?></th>
 			<th><?php echo lang('index_email_th');?></th>
 			<th><?php echo lang('index_groups_th');?></th>
 			<th><?php echo lang('index_status_th');?></th>
@@ -18,6 +19,9 @@
 			<tr>
 				<td><?php echo htmlspecialchars($user->first_name,ENT_QUOTES,'UTF-8');?></td>
 				<td><?php echo htmlspecialchars($user->last_name,ENT_QUOTES,'UTF-8');?></td>
+				<td class="text-center">
+					<img src="<?php echo base_url('/assets/img/avatars/') . $user->avatar ?>" alt="<?php echo htmlspecialchars($user->first_name . ' ' . $user->first_name ,ENT_QUOTES,'UTF-8');?>" class="rounded-circle avatar">
+				</td>
 				<td><?php echo htmlspecialchars($user->email,ENT_QUOTES,'UTF-8');?></td>
 				<td>
 					<?php foreach ($user->groups as $group):?>
