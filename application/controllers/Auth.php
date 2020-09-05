@@ -669,7 +669,7 @@ class Auth extends CI_Controller
 				$data = [
 					'first_name' => $this->input->post('first_name'),
 					'last_name' => $this->input->post('last_name'),
-					'avatar' => $this->file_name,
+					'avatar' => $user->avatar,
 					'company' => $this->input->post('company'),
 					'phone' => $this->input->post('phone'),
 				];
