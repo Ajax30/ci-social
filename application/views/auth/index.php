@@ -31,8 +31,8 @@
 				<td>
 					<?php echo ($user->active) ? anchor("auth/deactivate/".$user->id, lang('index_active_link')) : anchor("auth/activate/". $user->id, lang('index_inactive_link'));?>
 				</td>
-				<td>
-					<?php echo anchor("auth/edit_user/".$user->id, 'Edit') ;?>
+				<td class="text-center align-middle">
+					<a href="<?php echo base_url('auth/edit_user/'. $user->id); ?>" class="badge badge-primary p-2"><i class="fa fa-pencil-square-o"></i> Edit</a>
 				</td>
 			</tr>
 		<?php endforeach;?>
