@@ -142,6 +142,11 @@ class Migration_Install_ion_auth extends CI_Migration {
 				'constraint' => '50',
 				'null'       => TRUE
 			],
+			'avatar' => [
+				'type'       => 'VARCHAR',
+				'constraint' => '255',
+				'null'       => TRUE
+			],
 			'company' => [
 				'type'       => 'VARCHAR',
 				'constraint' => '100',
@@ -169,6 +174,7 @@ class Migration_Install_ion_auth extends CI_Migration {
 			'active'                  => '1',
 			'first_name'              => 'Admin',
 			'last_name'               => 'istrator',
+			'avatar' 				  				=> NULL,
 			'company'                 => 'ADMIN',
 			'phone'                   => '0',
 		];
