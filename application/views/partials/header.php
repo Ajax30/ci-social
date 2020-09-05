@@ -6,7 +6,7 @@
 	<meta http-equiv="X-UA-Compatible" content="ie=edge">
 	<link rel="stylesheet" href="<?php echo base_url('assets/css/font-awesome.min.css')?>">
 	<link rel="stylesheet" href="<?php echo base_url('assets/css/main.css')?>">
-	<title>Users App</title>
+	<title>ChatApp!</title>
 </head>
 <body>
 
@@ -32,8 +32,8 @@
 			    		</a>
 			    	</li>
 		    	<?php else: ?>
-						<li class="nav-item">
-							<span class="px-2">Welcome, <?php echo $this->session->userdata('user_first_name');?></span>
+						<li class="nav-item d-flex">
+							<span class="text px-2 my-auto">Welcome, <?php echo $this->session->userdata('user_first_name');?></span>
 						</li>
 						<li class="nav-item">
 							<span class="pr-2">

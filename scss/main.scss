@@ -23,10 +23,16 @@ $form-group-margin-bottom: 0.75rem;
 	min-height: 100vh;
 }
 
-.avatar {
-	width: 32px;
-	height: auto;
+.nav-item {
+	.text {
+		line-height: 1;
+	}
+	.avatar {
+		width: 32px;
+		height: auto;
+	}
 }
+
 
 .card.shadow-sm {
 	overflow: hidden;

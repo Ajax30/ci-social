@@ -9343,7 +9343,11 @@ a.text-dark:hover, a.text-dark:focus {
   min-height: 100vh;
 }
 
-.avatar {
+.nav-item .text {
+  line-height: 1;
+}
+
+.nav-item .avatar {
   width: 32px;
   height: auto;
 }
