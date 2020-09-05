@@ -5,7 +5,7 @@ $theme-colors: (
 	"danger": #d31928,
 	"success": #2a9e6c,
 	"info": #00BCD4,
-	"warning": #ffe401,
+	"warning": #FAC014,
 );
 
 //Navigation
@@ -21,6 +21,11 @@ $form-group-margin-bottom: 0.75rem;
 
 #siteWrapper {
 	min-height: 100vh;
+}
+
+.avatar {
+	width: 32px;
+	height: auto;
 }
 
 .card.shadow-sm {

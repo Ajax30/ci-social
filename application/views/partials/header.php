@@ -32,11 +32,17 @@
 			    		</a>
 			    	</li>
 		    	<?php else: ?>
-		    	<li class="nav-item">
-	        	<a href="<?php echo base_url('auth/logout'); ?>" class="nav-link btn btn-sm btn-primary">
-		        	Sign out
-		    		</a>
-	    		</li>
+						<li class="nav-item">
+							<span class="px-2">Welcome, <?php echo $this->session->userdata('user_first_name');?></span>
+						</li>
+						<li class="nav-item">
+							<span class="pr-2">
+								<img src="<?php echo base_url('/assets/img/avatars/') . $this->session->userdata('user_avatar') ?>" alt="<?php echo $this->session->userdata('user_first_name') . ' ' . $this->session->userdata('user_last_name');?>" class="rounded-circle avatar">
+							</span>
+						</li>
+						<li class="nav-item">
+							<a href="<?php echo base_url('auth/logout');?>" class="nav-link btn btn-sm btn-primary">Sign out</a>
+						</li>
 		    	<?php endif ?>
 		    </ul>
 		  </div>  

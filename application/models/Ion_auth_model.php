@@ -904,11 +904,11 @@ class Ion_auth_model extends CI_Model
 
 		$this->trigger_events('extra_where');
 
-		$query = $this->db->select($this->identity_column . ', email, id, password, active, last_login')
-						  ->where($this->identity_column, $identity)
-						  ->limit(1)
-						  ->order_by('id', 'desc')
-						  ->get($this->tables['users']);
+		$query = $this->db->select($this->identity_column . ', email, id, password, active, last_login, first_name, last_name, avatar')
+                  ->where($this->identity_column, $identity)
+                  ->limit(1)
+                  ->order_by('id', 'desc')
+                  ->get($this->tables['users']);
 
 		if ($this->is_max_login_attempts_exceeded($identity))
 		{
@@ -1943,7 +1943,10 @@ class Ion_auth_model extends CI_Model
 		    'identity'                 => $user->{$this->identity_column},
 		    $this->identity_column     => $user->{$this->identity_column},
 		    'email'                    => $user->email,
-		    'user_id'                  => $user->id, //everyone likes to overwrite id so we'll use user_id
+			'user_id'                  => $user->id,
+			'user_first_name'          => $user->first_name,
+			'user_last_name'           => $user->last_name,
+			'user_avatar'              => $user->avatar,
 		    'old_last_login'           => $user->last_login,
 		    'last_check'               => time(),
 		    'ion_auth_session_hash'    => $this->config->item('session_hash', 'ion_auth'),
