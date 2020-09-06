@@ -668,7 +668,12 @@ class Auth extends CI_Controller
 
 				$new_file = $this->upload->data('file_name');
 
-				$this->file_name = (isset($new_file) && !empty($new_file)) ? $new_file : $user->avatar;
+				// if there's a new file, use it, otherwise use the old one	
+				$this->file_name = !empty($new_file) ? $new_file : $user->avatar;
+
+				if (!empty($new_file)) {
+					$this->session->set_userdata('user_avatar',$new_file);
+				}
 				
 				$data = [
 					'first_name' => $this->input->post('first_name'),
