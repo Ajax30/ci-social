@@ -5,17 +5,20 @@
 <p><?php echo lang('index_subheading');?></p>
 
 <div class="table-responsive">
-	<table class="table table-sm table-bordered table-striped">
-		<tr>
-			<th><?php echo lang('index_fname_th');?></th>
-			<th><?php echo lang('index_lname_th');?></th>
-			<th><?php echo lang('index_photo_th');?></th>
-			<th><?php echo lang('index_email_th');?></th>
-			<th><?php echo lang('index_groups_th');?></th>
-			<th><?php echo lang('index_status_th');?></th>
-			<th><?php echo lang('index_action_th');?></th>
-		</tr>
-		<?php foreach ($users as $user):?>
+	<table class="table table-sm table-bordered table-hover">
+		<thead class="thead-light">
+			<tr>
+				<th class="py-2"><?php echo lang('index_fname_th');?></th>
+				<th class="py-2"><?php echo lang('index_lname_th');?></th>
+				<th class="py-2"><?php echo lang('index_photo_th');?></th>
+				<th class="py-2"><?php echo lang('index_email_th');?></th>
+				<th class="py-2"><?php echo lang('index_groups_th');?></th>
+				<th class="py-2"><?php echo lang('index_status_th');?></th>
+				<th class="py-2"><?php echo lang('index_action_th');?></th>
+			</tr>
+		</thead>
+		<tbody>
+			<?php foreach ($users as $user):?>
 			<tr>
 				<td><?php echo htmlspecialchars($user->first_name,ENT_QUOTES,'UTF-8');?></td>
 				<td><?php echo htmlspecialchars($user->last_name,ENT_QUOTES,'UTF-8');?></td>
@@ -35,7 +38,8 @@
 					<a href="<?php echo base_url('auth/edit_user/'. $user->id); ?>" class="badge badge-primary p-2"><i class="fa fa-pencil-square-o"></i> Edit</a>
 				</td>
 			</tr>
-		<?php endforeach;?>
+			<?php endforeach;?>
+		</tbody>
 	</table>
 </div>
 

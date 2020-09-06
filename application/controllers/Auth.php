@@ -665,11 +665,15 @@ class Auth extends CI_Controller
 			{
 				
 				$this->upload_avatar();
+
+				$new_file = $this->upload->data('file_name');
+
+				$this->file_name = (isset($new_file) && !empty($new_file)) ? $new_file : $user->avatar;
 				
 				$data = [
 					'first_name' => $this->input->post('first_name'),
 					'last_name' => $this->input->post('last_name'),
-					'avatar' => $user->avatar,
+					'avatar' => $this->file_name,
 					'company' => $this->input->post('company'),
 					'phone' => $this->input->post('phone'),
 				];
