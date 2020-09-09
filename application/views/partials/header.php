@@ -33,8 +33,8 @@
 			    	</li>
 		    	<?php else: ?>
 						<li class="nav-item d-flex dropdown">
-							<a class="nav-link dropdown-toggle" href="#" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-								<span class="text pl-2 my-auto">Welcome, <?php echo $this->session->userdata('user_first_name');?></span>
+							<a class="nav-link text-secondary dropdown-toggle" href="#" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+								Welcome, <?php echo $this->session->userdata('user_first_name');?>
 							</a>
 							<div class="dropdown-menu overflow-hidden p-0">
 								<?php if($this->ion_auth->is_admin()) : ?>
