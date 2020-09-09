@@ -2940,14 +2940,14 @@ input[type="button"].btn-block {
   min-width: 10rem;
   padding: 0.5rem 0;
   margin: 0.125rem 0 0;
-  font-size: 1rem;
+  font-size: 0.875rem;
   color: #212529;
   text-align: left;
   list-style: none;
   background-color: #fff;
   background-clip: padding-box;
   border: 1px solid rgba(0, 0, 0, 0.15);
-  border-radius: 0.25rem;
+  border-radius: 3px;
 }
 
 .dropdown-menu-left {
@@ -3105,7 +3105,7 @@ input[type="button"].btn-block {
 .dropdown-item {
   display: block;
   width: 100%;
-  padding: 0.25rem 1.5rem;
+  padding: 0.5rem 0.75rem;
   clear: both;
   font-weight: 400;
   color: #212529;
@@ -3139,7 +3139,7 @@ input[type="button"].btn-block {
 
 .dropdown-header {
   display: block;
-  padding: 0.5rem 1.5rem;
+  padding: 0.5rem 0.75rem;
   margin-bottom: 0;
   font-size: 0.875rem;
   color: #6c757d;
@@ -3148,7 +3148,7 @@ input[type="button"].btn-block {
 
 .dropdown-item-text {
   display: block;
-  padding: 0.25rem 1.5rem;
+  padding: 0.5rem 0.75rem;
   color: #212529;
 }
 

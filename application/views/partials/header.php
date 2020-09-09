@@ -32,8 +32,23 @@
 			    		</a>
 			    	</li>
 		    	<?php else: ?>
-						<li class="nav-item d-flex">
-							<span class="text px-2 my-auto">Welcome, <?php echo $this->session->userdata('user_first_name');?></span>
+						<li class="nav-item d-flex dropdown">
+							<a class="nav-link dropdown-toggle" href="#" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+								<span class="text pl-2 my-auto">Welcome, <?php echo $this->session->userdata('user_first_name');?></span>
+							</a>
+							<div class="dropdown-menu overflow-hidden p-0">
+								<?php if($this->ion_auth->is_admin()) : ?>
+									<a class="dropdown-item text-secondary" href="<?php echo base_url('/auth') ?>">
+										<i class="fa fa-users mr-2"></i> Manage authors
+									</a>
+								<?php endif; ?>
+								<a class="dropdown-item text-secondary" href="<?php echo base_url('/') ?>">
+									<i class="fa fa-tachometer mr-2"></i> My dashboard
+								</a>
+								<a class="dropdown-item text-secondary" href="<?php echo base_url('auth/edit_user/' . $this->session->userdata('user_id')) ?>">
+									<i class="fa fa-user-circle-o mr-2"></i> Edit my profile
+								</a>
+							</div>
 						</li>
 						<li class="nav-item">
 							<span class="pr-2">
