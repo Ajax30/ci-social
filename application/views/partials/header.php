@@ -36,7 +36,7 @@
 							<a class="nav-link text-secondary dropdown-toggle" href="#" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
 								Welcome, <?php echo $this->session->userdata('user_first_name');?>
 							</a>
-							<div class="dropdown-menu overflow-hidden p-0">
+							<div class="dropdown-menu overflow-hidden shadow-sm p-0">
 								<?php if($this->ion_auth->is_admin()) : ?>
 									<a class="dropdown-item text-secondary" href="<?php echo base_url('/auth') ?>">
 										<i class="fa fa-users mr-2"></i> Manage authors

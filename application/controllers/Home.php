@@ -20,7 +20,10 @@ class Home extends CI_Controller {
 		if (!$this->ion_auth->logged_in()) {
 			redirect('auth/login', 'refresh');
 		}
+		//Get Users
+		$this->data['users'] = $this->ion_auth->users()->result();
 
-		$this->load->view('home');
+		// Pass the Users to the view
+		$this->load->view('home', $this->data);
 	}
 }
